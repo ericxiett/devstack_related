@@ -44,6 +44,8 @@ IMAGE_URLS="http://172.23.11.2/repo/openstack/cirros/0.3.4/cirros-0.3.4-x86_64-d
 
 # Enabled services
 disable_all_services
+# Additional services
+enable_service rabbit mysql
 # Related nova services
 enable_service n-api n-cpu n-cond n-sch n-novnc n-cauth
 # Related glance services
