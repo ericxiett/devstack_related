@@ -34,7 +34,7 @@ DEST=/opt/stack
 
 # Git address for cloning source code
 # use TryStack git mirror
-GIT_BASE=http://172.23.11.6/openstack
+GIT_BASE=http://172.23.11.6
 NOVNC_REPO=http://git.trystack.cn/kanaka/noVNC.git
 SPICE_REPO=http://git.trystack.cn/git/spice/spice-html5.git
 
