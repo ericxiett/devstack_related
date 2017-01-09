@@ -8,30 +8,22 @@ SERVICE_PASSWORD=$ADMIN_PASSWORD
 SERVICE_TOKEN=azertytoken
 
 # Config network
-HOST_IP=172.23.32.3
-FIXED_RANGE=192.168.0.0/24
-NETWORK_GATEWAY=192.168.0.1
-#FLOATING_RANGE=192.168.0.0/24
-#PUBLIC_NETWORK_GATEWAY=192.168.0.1
-#Q_FLOATING_ALLOCATION_POOL=start=192.168.0.100,end=192.168.0.200
+HOST_IP=172.23.29.2
+FLAT_INTERFACE=eth1
+
+FIXED_RANGE=10.254.1.0/24
+NETWORK_GATEWAY=10.254.1.1
+
+MULTI_HOST=1
 
 # Log
 LOGFILE=$DEST/logs/stack.sh.log
 LOGDAYS=2
-LOG_COLOR=True
+LOG_COLOR=False
 LOGDIR=$DEST/logs
 
 # Installation directory
 DEST=/opt/stack
-
-# Database configuration. Mysql is the default db.
-#disable_service mysql
-#enable_service postgresql
-
-# Rpc backend. 
-# Support for a RabbitMQ RPC backend is included. 
-# Additional RPC backends may be available via external plugins.
-# disable_service rabbit
 
 # Git address for cloning source code
 # use TryStack git mirror
@@ -64,3 +56,6 @@ enable_service horizon
 # Use pip default.
 #LIBS_FROM_GIT=python-novaclient,python-glanceclient,python-neutronclient,python-keystoneclient,python-cinderclient,python-swiftclient
 
+[[post-config|$NOVA_CONF]]
+[DEFAULT]
+compute_monitors=cpu.virt_driver
